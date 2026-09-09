@@ -1,0 +1,642 @@
+/* ==========================================================================
+   PENJUALAN PIK-R - STYLESHEET SEDERHANA & MOBILE-FRIENDLY
+   Desain ramah HP untuk panitia jualan keliling kelas
+   ========================================================================== */
+
+:root {
+  --primary: #0d9488;
+  --primary-hover: #0f766e;
+  --primary-light: #f0fdfa;
+  
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  
+  --cash-color: #15803d;
+  --cash-bg: #dcfce7;
+  
+  --qris-color: #1d4ed8;
+  --qris-bg: #dbeafe;
+
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #cbd5e1;
+  --border-light: #e2e8f0;
+  
+  --text: #0f172a;
+  --text-muted: #64748b;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  padding: 12px 12px 40px 12px;
+}
+
+.app-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: 14px 0 16px 0;
+}
+
+.brand-pill {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 6px;
+}
+
+.app-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header-flex .card-title {
+  margin-bottom: 0;
+}
+
+.count-badge {
+  font-size: 0.72rem;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text);
+  background: #ffffff;
+  transition: border-color 0.15s;
+  min-height: 46px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+select:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.input-prefix-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-group .prefix {
+  position: absolute;
+  left: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.input-prefix-group input {
+  padding-left: 36px;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Stepper Kuantitas */
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: white;
+}
+
+.btn-step {
+  width: 50px;
+  height: 46px;
+  background: #f1f5f9;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.btn-step:active {
+  background: #e2e8f0;
+}
+
+.qty-stepper input {
+  flex: 1;
+  border: none;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  height: 46px;
+  min-height: unset;
+  background: transparent;
+}
+
+/* Radio Chip Metode Pembayaran */
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.pay-chip {
+  cursor: pointer;
+}
+
+.pay-chip input {
+  display: none;
+}
+
+.pay-chip-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  transition: all 0.15s;
+  min-height: 44px;
+}
+
+.pay-chip input:checked + .pay-chip-label {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+  box-shadow: 0 2px 4px rgba(13, 148, 136, 0.1);
+}
+
+.split-pay-box {
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.split-status {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.split-status.valid {
+  color: var(--success);
+}
+
+.split-status.invalid {
+  color: var(--danger);
+}
+
+/* Live Calc Preview Card */
+.calc-preview-card {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+  border: 1px solid #99f6e4;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin: 14px 0;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.calc-total {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.calc-sub-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  border-top: 1px dashed #99f6e4;
+  padding-top: 6px;
+}
+
+.calc-sub-row .divider {
+  color: #99f6e4;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 48px;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-wa {
+  background: #25d366;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
+}
+
+.btn-wa:hover {
+  background: #1eb956;
+}
+
+.btn-outline {
+  background: white;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 14px 20px;
+  font-size: 1rem;
+}
+
+.btn-text-danger {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.btn-text-danger:hover {
+  text-decoration: underline;
+}
+
+/* Colors text */
+.text-primary { color: var(--primary); }
+.text-success { color: var(--success); }
+.text-cash { color: var(--cash-color); }
+.text-qris { color: var(--qris-color); }
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: 0.75rem; }
+
+/* Riwayat Penjualan List */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.history-item {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+.history-item:hover {
+  border-color: var(--primary);
+}
+
+.history-left {
+  flex: 1;
+}
+
+.history-class {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.history-prod {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.history-right {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.history-amount {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.badge-pay {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.badge-cash {
+  background: var(--cash-bg);
+  color: var(--cash-color);
+}
+
+.badge-qris {
+  background: var(--qris-bg);
+  color: var(--qris-color);
+}
+
+.badge-split {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.btn-del-tx {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+.btn-del-tx:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 20px 10px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Rekapitulasi Sederhana */
+.recap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.recap-item {
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recap-item.recap-highlight {
+  grid-column: 1 / -1;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.recap-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.recap-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.recap-item.recap-highlight .recap-value {
+  font-size: 1.35rem;
+}
+
+/* Sub-recap sections */
+.sub-recap-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.sub-recap-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.recap-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+}
+
+.breakdown-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.breakdown-val {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* WA Actions & Reset */
+.wa-action-section {
+  margin-top: 18px;
+}
+
+.reset-zone {
+  text-align: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-light);
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  background: #0f172a;
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
