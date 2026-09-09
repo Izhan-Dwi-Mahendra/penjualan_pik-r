@@ -1,1 +1,0 @@
-# penjualan_pik-r
