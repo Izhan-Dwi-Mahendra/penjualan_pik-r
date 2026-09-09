@@ -2,314 +2,257 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PIK-R SKONE | SMK Negeri 1 Depok</title>
-  <meta name="description" content="Pusat Informasi dan Konseling Remaja SMK Negeri 1 Depok. Wadah edukasi, konseling sebaya, kesehatan remaja, dan perencanaan masa depan.">
-
-  <!-- Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Penjualan PIK-R | Catatan Kasir Keliling</title>
+  <meta name="description" content="Aplikasi catatan kasir keliling sederhana untuk penjualan PIK-R ke kelas-kelas.">
+  <meta name="theme-color" content="#0d9488">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Background Decorative Shapes -->
-  <div class="bg-decorations" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
+  <!-- Main Container Mobile Center -->
+  <main class="app-container">
 
-  <!-- Main Container -->
-  <div class="site-wrapper">
-
-    <!-- 1. HEADER / NAVBAR -->
-    <header class="navbar-card">
-      <div class="navbar-brand">
-        <div class="logo-circle">
-          <img src="assets/images/logo-round.png" alt="Logo PIK-R Skone" class="brand-logo-img">
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">PIK-R SKONE</span>
-          <span class="brand-subtitle">SMK NEGERI 1 DEPOK</span>
-        </div>
-      </div>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
+    <!-- Header / Brand -->
+    <header class="app-header">
+      <div class="brand-pill">PIK-R</div>
+      <h1 class="app-title">PENJUALAN PIK-R</h1>
+      <p class="app-subtitle">Catatan Kasir Keliling Kelas (10 & 11)</p>
     </header>
 
-    <!-- NAVIGATION DRAWER (OFF-CANVAS) -->
-    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
-    <aside class="nav-drawer" id="navDrawer" aria-hidden="true">
-      <div class="drawer-header">
-        <div class="drawer-title-group">
-          <span class="drawer-title">PIK-R SKONE</span>
-          <span class="drawer-subtitle">SMK Negeri 1 Depok</span>
-        </div>
-        <button class="drawer-close" id="drawerClose" aria-label="Tutup Menu">&times;</button>
-      </div>
-      <nav class="drawer-nav">
-        <ul>
-          <li><a href="#hero" class="nav-link active">Beranda</a></li>
-          <li><a href="#about" class="nav-link">Tentang Kami</a></li>
-          <li><a href="#spirit" class="nav-link">Semboyan & Visi</a></li>
-          <li><a href="#counselor" class="nav-link">Konselor Sebaya</a></li>
-          <li><a href="#konseling" class="nav-link btn-drawer-cta" id="btnDrawerChat">Curhat / Konseling Online</a></li>
-        </ul>
-      </nav>
-      <div class="drawer-footer">
-        <p class="drawer-footer-text">“Sehat, Bersahabat, Berprestasi”</p>
-        <span class="drawer-copyright">&copy; 2026 PIK-R SKONE</span>
-      </div>
-    </aside>
+    <!-- ==================== BAGIAN 1: FORM INPUT PENJUALAN ==================== -->
+    <section class="card form-card">
+      <h2 class="card-title">Input Penjualan</h2>
 
-    <!-- MAIN CONTENT -->
-    <main class="page-content">
+      <form id="formPenjualan" autocomplete="off">
 
-      <!-- 2. HERO SECTION -->
-      <section class="hero-card" id="hero">
-        <div class="hero-bg-wrapper">
-          <img src="assets/images/hero-clean.jpg" alt="Siswa-siswi PIK-R SMK Negeri 1 Depok" class="hero-bg-img">
-          <div class="hero-overlay"></div>
+        <!-- 1. Nama Produk -->
+        <div class="form-group">
+          <label for="inputProductName">Nama Produk</label>
+          <input type="text" id="inputProductName" list="productSuggestions" placeholder="Ketik nama produk (misal: Cheesecake, Risol, Donat)" required>
+          <datalist id="productSuggestions">
+            <!-- Diisi otomatis dari riwayat produk yang pernah diinput -->
+          </datalist>
+          <span class="field-hint" id="autofillHint" style="display: none;">✨ Harga otomatis terisi dari riwayat sebelumnya.</span>
         </div>
 
-        <div class="hero-content">
-          <span class="hero-tag">PIK-R SKONE</span>
-          <h1 class="hero-title">PIK-R SKONE</h1>
-          <p class="hero-subtitle">Bersama Remaja,<br>Untuk Masa Depan</p>
-
-          <div class="hero-actions">
-            <button class="btn-hero-action" id="btnKenalLebihDekat">
-              <svg class="btn-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-              <span>Kenal Lebih Dekat</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Carousel Indicators -->
-        <div class="carousel-dots" aria-label="Indikator Slide">
-          <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
-          <button class="dot" data-slide="1" aria-label="Slide 2"></button>
-          <button class="dot" data-slide="2" aria-label="Slide 3"></button>
-        </div>
-      </section>
-
-      <!-- 3. TENTANG KAMI SECTION -->
-      <section class="card-section about-card" id="about">
-        <div class="about-grid">
-          <!-- Left Column: Text -->
-          <div class="about-text-col">
-            <div class="section-pill">TENTANG KAMI</div>
-            <h2 class="section-title">PIK-R SKONE</h2>
-            <p class="section-desc">
-              PIK-R SKONE merupakan wadah bagi remaja untuk mendapatkan informasi, edukasi, dan konseling seputar kehidupan remaja, seperti kesehatan reproduksi, kesehatan mental, perencanaan masa depan, pergaulan, dan pengembangan diri.
-            </p>
-            <div class="about-action">
-              <button class="btn-primary" id="btnTentangSelengkapnya">
-                <span>Selengkapnya</span>
-                <svg class="btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Right Column: Logo Card Graphic -->
-          <div class="about-logo-col">
-            <div class="logo-box-card">
-              <img src="assets/images/logo-card.jpg" alt="Logo PIK-R Skone - Pusat Informasi dan Konseling Remaja SMK Negeri 1 Depok" class="logo-box-img">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. OUR SPIRIT BANNER -->
-      <section class="spirit-card" id="spirit">
-        <!-- Botanical Vector Leaf Decoration -->
-        <div class="botanical-decor" aria-hidden="true">
-          <svg class="leaf-svg leaf-right" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M70,95 C70,60 85,35 95,20 C75,30 55,40 45,65 C40,75 42,88 45,95"></path>
-            <path d="M60,60 C75,55 85,45 88,38"></path>
-            <path d="M50,75 C62,72 72,66 75,60"></path>
-            <path d="M75,95 C75,70 60,40 40,25 C30,40 32,60 40,80"></path>
-          </svg>
-        </div>
-
-        <div class="spirit-content">
-          <div class="spirit-tagline">
-            <span class="spirit-line"></span>
-            <span class="spirit-tag-text">OUR SPIRIT</span>
-            <span class="spirit-dot">✦</span>
-          </div>
-
-          <blockquote class="spirit-quote">
-            “Sehat, Bersahabat,<br>Berprestasi”
-          </blockquote>
-        </div>
-      </section>
-
-      <!-- 5. KONSELOR SEBAYA SECTION -->
-      <section class="card-section counselor-card" id="counselor">
-        <div class="counselor-grid">
-          <!-- Left Column: Info -->
-          <div class="counselor-text-col">
-            <div class="counselor-badge-group">
-              <div class="counselor-avatar-circle" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                </svg>
-              </div>
-              <span class="section-pill">KONSELOR</span>
-            </div>
-
-            <h2 class="section-title counselor-title">KONSELOR SEBAYA</h2>
-            <p class="section-desc counselor-desc">
-              Teman sebaya yang siap mendengarkan, memberi dukungan, dan membantu kamu menjadi versi terbaik diri sendiri.
-            </p>
-
-            <div class="counselor-action">
-              <button class="btn-counselor-chat" id="btnKonselingModal">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chat-icon">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                </svg>
-                <span>Curhat Bersama Kami</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Right Column: Hands Stack Photo with Script Note -->
-          <div class="counselor-photo-col">
-            <div class="counselor-photo-wrapper">
-              <img src="assets/images/counselor-hands.jpg" alt="Tumpukan tangan konselor sebaya saling menguatkan" class="counselor-img">
-            </div>
-          </div>
-        </div>
-
-        <!-- Delicate Heart Bottom Divider -->
-        <div class="heart-divider" aria-hidden="true">
-          <span class="divider-line"></span>
-          <span class="divider-heart">♡</span>
-          <span class="divider-line"></span>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-content">
-        <p class="footer-motto">Generasi Berencana (GenRe) • Berani, Berkarakter, Berencana</p>
-        <p class="footer-info">PIK-R SKONE — SMK Negeri 1 Depok, Jawa Barat</p>
-      </div>
-    </footer>
-
-  </div> <!-- /site-wrapper -->
-
-  <!-- MODAL: TENTANG KAMI & KENAL LEBIH DEKAT -->
-  <div class="modal-backdrop" id="infoModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
-      <div class="modal-header">
-        <div class="modal-badge">TENTANG KAMI</div>
-        <button class="modal-close" id="modalClose" aria-label="Tutup Dialog">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h3 id="modalTitle" class="modal-title">Pusat Informasi dan Konseling Remaja (PIK-R)</h3>
-        <p class="modal-text">
-          <strong>PIK-R SKONE</strong> di SMK Negeri 1 Depok adalah organisasi binaan BKKBN yang dikelola oleh, dari, dan untuk remaja. Kami hadir sebagai wadah aman (<em>safe space</em>) bagi setiap siswa-siswi yang ingin bercerita tanpa takut dihakimi (<em>confidential & non-judgmental</em>).
-        </p>
-
-        <div class="modal-pillars">
-          <div class="pillar-item">
-            <div class="pillar-icon">🧠</div>
-            <div class="pillar-text">
-              <h4>Kesehatan Mental</h4>
-              <p>Manajemen stres belajar, kecemasan, dan peningkatan percaya diri.</p>
-            </div>
-          </div>
-          <div class="pillar-item">
-            <div class="pillar-icon">🌱</div>
-            <div class="pillar-text">
-              <h4>Kesehatan Reproduksi</h4>
-              <p>Pemahaman seksualitas sehat, bahaya pernikahan dini, dan pencegahan risiko remaja.</p>
-            </div>
-          </div>
-          <div class="pillar-item">
-            <div class="pillar-icon">🎯</div>
-            <div class="pillar-text">
-              <h4>Perencanaan Masa Depan</h4>
-              <p>Edukasi 8 Fungsi Keluarga, pemilihan karier, dan kesiapan hidup berkeluarga.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-quote-box">
-          <p>“Jadikan masa remajamu penuh makna, sehat, dan berprestasi bersama PIK-R SKONE.”</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: KONSELING / CURHAT DENGAN KONSELOR SEBAYA -->
-  <div class="modal-backdrop" id="counselingModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-labelledby="counselingTitle">
-      <div class="modal-header">
-        <div class="modal-badge">RUANG AMAN CURHAT</div>
-        <button class="modal-close" id="counselingClose" aria-label="Tutup Dialog">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h3 id="counselingTitle" class="modal-title">Konseling Sebaya PIK-R SKONE</h3>
-        <p class="modal-text">
-          Punya hal yang ingin diceritakan? Jangan dipendam sendirian. Konselor Sebaya kami siap mendengar dengan tulus, menjaga privasi ceritamu, dan menemani langkahmu.
-        </p>
-
-        <form class="counseling-form" id="counselingForm" onsubmit="return false;">
+        <!-- 2. Modal & Harga Jual per pcs -->
+        <div class="form-row">
           <div class="form-group">
-            <label for="counselorName">Nama Panggilan (Boleh Samaran / Anonim)</label>
-            <input type="text" id="counselorName" placeholder="Contoh: Bunga / Anonim" class="form-input">
+            <label for="inputCostPrice">Modal per pcs</label>
+            <div class="input-prefix-group">
+              <span class="prefix">Rp</span>
+              <input type="number" id="inputCostPrice" placeholder="4.500" min="0" step="100" required inputmode="numeric">
+            </div>
           </div>
+
           <div class="form-group">
-            <label for="counselorClass">Kelas / Jurusan</label>
-            <input type="text" id="counselorClass" placeholder="Contoh: XI RPL 1 / Privasi" class="form-input">
+            <label for="inputSellingPrice">Harga Jual per pcs</label>
+            <div class="input-prefix-group">
+              <span class="prefix">Rp</span>
+              <input type="number" id="inputSellingPrice" placeholder="6.000" min="0" step="100" required inputmode="numeric">
+            </div>
           </div>
+        </div>
+
+        <!-- 3. Target Jurusan & Kelas -->
+        <div class="form-row">
           <div class="form-group">
-            <label for="counselorTopic">Topik Curhat</label>
-            <select id="counselorTopic" class="form-input">
-              <option value="Teman / Pergaulan">Pergaulan / Pertemanan</option>
-              <option value="Tekanan Belajar / Stres">Tekanan Akademik & Ujian</option>
-              <option value="Keluarga">Hubungan Keluarga</option>
-              <option value="Masa Depan / Karier">Kebingungan Masa Depan</option>
-              <option value="Lainnya">Lainnya</option>
+            <label for="selectDept">Jurusan</label>
+            <select id="selectDept" required>
+              <option value="">Pilih Jurusan ▼</option>
+              <option value="DKV">DKV</option>
+              <option value="PH">Perhotelan (PH)</option>
+              <option value="AKL">AKL</option>
+              <option value="TO">Teknik Otomotif</option>
+              <option value="PPLG">PPLG</option>
             </select>
           </div>
+
           <div class="form-group">
-            <label for="counselorMsg">Cerita Singkat</label>
-            <textarea id="counselorMsg" rows="3" placeholder="Tuliskan apa yang sedang kamu rasakan..." class="form-input"></textarea>
+            <label for="selectClass">Kelas</label>
+            <select id="selectClass" required disabled>
+              <option value="">Pilih Jurusan Dahulu</option>
+            </select>
           </div>
-          <div class="form-actions">
-            <button type="button" class="btn-wa-action" id="btnSendWhatsApp">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
-              </svg>
-              <span>Kirim ke Konselor Sebaya</span>
-            </button>
+        </div>
+
+        <!-- 4. Jumlah Barang (Stepper Besar) -->
+        <div class="form-group">
+          <label for="inputQty">Jumlah</label>
+          <div class="qty-stepper">
+            <button type="button" class="btn-step" id="btnQtyMinus" aria-label="Kurang">−</button>
+            <input type="number" id="inputQty" value="1" min="1" max="999" required inputmode="numeric">
+            <button type="button" class="btn-step" id="btnQtyPlus" aria-label="Tambah">+</button>
           </div>
-        </form>
+        </div>
+
+        <!-- 5. Metode Pembayaran -->
+        <div class="form-group">
+          <label>Metode Pembayaran</label>
+          <div class="payment-options">
+            <label class="pay-chip">
+              <input type="radio" name="payMethod" value="Cash" checked>
+              <span class="pay-chip-label">💵 Cash</span>
+            </label>
+
+            <label class="pay-chip">
+              <input type="radio" name="payMethod" value="QRIS">
+              <span class="pay-chip-label">📱 QRIS</span>
+            </label>
+
+            <label class="pay-chip">
+              <input type="radio" name="payMethod" value="Split">
+              <span class="pay-chip-label">⚖️ Campuran</span>
+            </label>
+          </div>
+
+          <!-- Input Tambahan jika Pembayaran Campuran (Cash + QRIS) -->
+          <div id="splitPaymentRow" class="split-pay-box" style="display: none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inputSplitCash">Nominal Cash</label>
+                <div class="input-prefix-group">
+                  <span class="prefix">Rp</span>
+                  <input type="number" id="inputSplitCash" placeholder="0" min="0" step="500" inputmode="numeric">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSplitQris">Nominal QRIS</label>
+                <div class="input-prefix-group">
+                  <span class="prefix">Rp</span>
+                  <input type="number" id="inputSplitQris" placeholder="0" min="0" step="500" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+            <div class="split-status" id="splitStatus">Total Cash + QRIS harus pas dengan total transaksi.</div>
+          </div>
+        </div>
+
+        <!-- Live Calculation Banner -->
+        <div class="calc-preview-card">
+          <div class="calc-row">
+            <span>Total Pemasukan:</span>
+            <strong class="text-primary calc-total" id="previewTotalAmount">Rp0</strong>
+          </div>
+          <div class="calc-sub-row">
+            <span>Modal: <span id="previewTotalCost">Rp0</span></span>
+            <span class="divider">•</span>
+            <span>Keuntungan: <strong class="text-success" id="previewProfit">Rp0</strong></span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSubmitSale">
+          SIMPAN PENJUALAN
+        </button>
+
+      </form>
+    </section>
+
+    <!-- ==================== BAGIAN 2: RIWAYAT PENJUALAN ==================== -->
+    <section class="card history-card">
+      <div class="card-header-flex">
+        <h2 class="card-title">Riwayat Penjualan</h2>
+        <span class="count-badge" id="txCountBadge">0 Transaksi</span>
       </div>
-    </div>
+
+      <div class="history-list" id="historyListContainer">
+        <!-- Diisi otomatis oleh JavaScript -->
+        <div class="empty-state" id="emptyHistoryMsg">
+          Belum ada transaksi. Silakan input penjualan di atas.
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BAGIAN 3: REKAPITULASI SEDERHANA ==================== -->
+    <section class="card recap-card">
+      <h2 class="card-title">Rekapitulasi Penjualan</h2>
+
+      <!-- Metrik Utama -->
+      <div class="recap-grid">
+        <div class="recap-item">
+          <span class="recap-label">TOTAL PENJUALAN</span>
+          <strong class="recap-value text-primary" id="recapTotalPenjualan">Rp0</strong>
+        </div>
+
+        <div class="recap-item">
+          <span class="recap-label">TOTAL MODAL</span>
+          <strong class="recap-value" id="recapTotalModal">Rp0</strong>
+        </div>
+
+        <div class="recap-item recap-highlight">
+          <span class="recap-label">TOTAL KEUNTUNGAN</span>
+          <strong class="recap-value text-success" id="recapTotalKeuntungan">Rp0</strong>
+        </div>
+
+        <div class="recap-item">
+          <span class="recap-label">TOTAL BARANG TERJUAL</span>
+          <strong class="recap-value" id="recapTotalTerjual">0 pcs</strong>
+        </div>
+
+        <div class="recap-item">
+          <span class="recap-label">TOTAL CASH</span>
+          <strong class="recap-value text-cash" id="recapTotalCash">Rp0</strong>
+        </div>
+
+        <div class="recap-item">
+          <span class="recap-label">TOTAL QRIS</span>
+          <strong class="recap-value text-qris" id="recapTotalQris">Rp0</strong>
+        </div>
+      </div>
+
+      <!-- Rekap Per Kelas -->
+      <div class="sub-recap-section">
+        <h3 class="sub-recap-title">Rekap per Kelas</h3>
+        <div class="recap-breakdown-list" id="recapClassList">
+          <span class="text-muted text-sm">Belum ada data penjualan kelas.</span>
+        </div>
+      </div>
+
+      <!-- Rekap Per Jurusan -->
+      <div class="sub-recap-section">
+        <h3 class="sub-recap-title">Rekap per Jurusan</h3>
+        <div class="recap-breakdown-list" id="recapDeptList">
+          <span class="text-muted text-sm">Belum ada data penjualan jurusan.</span>
+        </div>
+      </div>
+
+      <!-- ==================== BAGIAN 4: LAPORAN WHATSAPP ==================== -->
+      <div class="wa-action-section">
+        <button type="button" class="btn btn-wa btn-block btn-lg" id="btnCopyWa">
+          📋 COPY LAPORAN WHATSAPP
+        </button>
+
+        <a href="#" class="btn btn-outline btn-block" id="btnDirectWa" target="_blank" style="display: none; margin-top: 8px;">
+          💬 Buka Langsung di WhatsApp
+        </a>
+      </div>
+
+      <!-- Reset Data Button -->
+      <div class="reset-zone">
+        <button type="button" class="btn-text-danger" id="btnResetData">
+          🗑️ Reset Data Penjualan Hari Ini
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer class="app-footer">
+      <p>PIK-R SKONE • Aplikasi Kasir Keliling</p>
+    </footer>
+
+  </main>
+
+  <!-- Toast Notifikasi Ringan -->
+  <div id="toast" class="toast" role="status">
+    <span id="toastMsg">Tindakan berhasil!</span>
   </div>
 
-  <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
